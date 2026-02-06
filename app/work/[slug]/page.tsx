@@ -2,7 +2,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import { getProjectBySlug, getAllProjects } from "@/lib/projects"
-import { ArrowLeft } from "lucide-react"
+import { ArrowLeft, ArrowUpRight } from "lucide-react"
 
 export async function generateStaticParams() {
   const projects = getAllProjects()
@@ -14,7 +14,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const project = getProjectBySlug(slug)
-  
+
   if (!project) {
     return {
       title: "Project Not Found",
@@ -37,50 +37,51 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
 
   return (
     <div className="min-h-screen">
-      {/* Header */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 pt-12 pb-8">
+      {/* Back link */}
+      <section className="mx-auto max-w-6xl px-6 lg:px-8 pt-24">
         <Link
           href="/work"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-12"
+          className="inline-flex items-center gap-2 font-mono text-xs tracking-wider text-muted-foreground hover:text-foreground transition-colors uppercase"
         >
-          <ArrowLeft className="h-4 w-4" />
+          <ArrowLeft className="h-3.5 w-3.5" />
           Back to Work
         </Link>
+      </section>
 
-        <div className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-          <div className="lg:col-span-2">
-            <h1 className="font-serif text-3xl md:text-4xl text-foreground tracking-tight text-balance">
+      {/* Header */}
+      <section className="mx-auto max-w-6xl px-6 lg:px-8 pt-12 pb-16">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="lg:col-span-8">
+            <p className="font-mono text-xs tracking-wider text-accent uppercase mb-4">
+              {project.industry}
+            </p>
+            <h1 className="text-3xl md:text-5xl text-foreground tracking-tight font-light leading-[1.15] text-balance">
               {project.title}
             </h1>
-            <p className="mt-4 text-base text-muted-foreground leading-relaxed">
+            <p className="mt-6 text-base text-muted-foreground leading-relaxed max-w-xl">
               {project.description}
             </p>
           </div>
 
-          <div className="space-y-4 text-sm">
-            <div>
-              <p className="text-muted-foreground">Client</p>
-              <p className="text-foreground">{project.client}</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground">Role</p>
-              <p className="text-foreground">{project.role}</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground">Duration</p>
-              <p className="text-foreground">{project.duration}</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground">Tools</p>
-              <p className="text-foreground">{project.tools.join(", ")}</p>
-            </div>
+          <div className="lg:col-span-4 space-y-6">
+            {[
+              { label: "Client", value: project.client },
+              { label: "Role", value: project.role },
+              { label: "Duration", value: project.duration },
+              { label: "Tools", value: project.tools.join(", ") },
+            ].map((item) => (
+              <div key={item.label}>
+                <p className="font-mono text-[10px] tracking-wider text-muted-foreground uppercase">{item.label}</p>
+                <p className="text-sm text-secondary-foreground mt-1">{item.value}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Hero Image */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-8">
-        <div className="aspect-[16/9] relative overflow-hidden bg-muted">
+      <section className="mx-auto max-w-6xl px-6 lg:px-8 pb-16">
+        <div className="aspect-[16/9] relative overflow-hidden bg-secondary">
           <Image
             src={project.thumbnail || "/placeholder.svg"}
             alt={project.title}
@@ -92,139 +93,155 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       </section>
 
       {/* Overview */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
-        <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-6">
-          Overview
-        </h2>
-        <p className="text-base text-foreground leading-relaxed max-w-3xl">
-          {project.overview}
-        </p>
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
+          <p className="font-mono text-xs tracking-wider text-accent uppercase mb-6">
+            Overview
+          </p>
+          <p className="text-base text-secondary-foreground leading-relaxed max-w-3xl">
+            {project.overview}
+          </p>
+        </div>
       </section>
 
       {/* Constraints */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
-        <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-6">
-          Constraints
-        </h2>
-        <div className="grid md:grid-cols-2 gap-6 max-w-3xl">
-          <div>
-            <p className="text-sm font-medium text-foreground mb-1">Time</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">{project.constraints.time}</p>
-          </div>
-          <div>
-            <p className="text-sm font-medium text-foreground mb-1">Budget</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">{project.constraints.budget}</p>
-          </div>
-          <div>
-            <p className="text-sm font-medium text-foreground mb-1">Team</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">{project.constraints.team}</p>
-          </div>
-          <div>
-            <p className="text-sm font-medium text-foreground mb-1">Platform</p>
-            <p className="text-sm text-muted-foreground leading-relaxed">{project.constraints.platform}</p>
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
+          <p className="font-mono text-xs tracking-wider text-accent uppercase mb-8">
+            Constraints
+          </p>
+          <div className="grid md:grid-cols-2 gap-px bg-border max-w-3xl">
+            {[
+              { label: "Time", value: project.constraints.time },
+              { label: "Budget", value: project.constraints.budget },
+              { label: "Team", value: project.constraints.team },
+              { label: "Platform", value: project.constraints.platform },
+            ].map((item) => (
+              <div key={item.label} className="bg-background p-6">
+                <p className="font-mono text-[10px] tracking-wider text-muted-foreground uppercase mb-2">{item.label}</p>
+                <p className="text-sm text-secondary-foreground leading-relaxed">{item.value}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Approach */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
-        <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-6">
-          Approach
-        </h2>
-        <div className="space-y-6 max-w-3xl">
-          {project.approach.map((paragraph, index) => (
-            <p key={index} className="text-base text-foreground leading-relaxed">
-              {paragraph}
-            </p>
-          ))}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
+          <p className="font-mono text-xs tracking-wider text-accent uppercase mb-8">
+            Approach
+          </p>
+          <div className="space-y-6 max-w-3xl">
+            {project.approach.map((paragraph, index) => (
+              <p key={index} className="text-base text-secondary-foreground leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Images */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
-        <div className="space-y-8">
-          {project.images.map((image, index) => (
-            <figure key={index}>
-              <div className="aspect-[16/10] relative overflow-hidden bg-muted">
-                <Image
-                  src={image.src || "/placeholder.svg"}
-                  alt={image.caption}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <figcaption className="mt-3 text-sm text-muted-foreground">
-                {image.caption}
-              </figcaption>
-            </figure>
-          ))}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
+          <div className="grid gap-8">
+            {project.images.map((image, index) => (
+              <figure key={index}>
+                <div className="aspect-[16/10] relative overflow-hidden bg-secondary">
+                  <Image
+                    src={image.src || "/placeholder.svg"}
+                    alt={image.caption}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <figcaption className="mt-3 font-mono text-[11px] text-muted-foreground tracking-wider">
+                  {image.caption}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Outcome */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
-        <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-6">
-          Outcome
-        </h2>
-        <div className="max-w-3xl">
-          <ul className="space-y-3 mb-6">
-            {project.outcome.metrics.map((metric, index) => (
-              <li key={index} className="text-sm text-foreground flex items-start gap-3">
-                <span className="text-muted-foreground mt-1.5 h-1.5 w-1.5 rounded-full bg-current flex-shrink-0" />
-                {metric}
-              </li>
-            ))}
-          </ul>
-          <p className="text-base text-muted-foreground leading-relaxed italic font-serif">
-            {project.outcome.summary}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
+          <p className="font-mono text-xs tracking-wider text-accent uppercase mb-8">
+            Outcome
           </p>
+          <div className="max-w-3xl">
+            <div className="grid gap-px bg-border mb-8">
+              {project.outcome.metrics.map((metric, index) => (
+                <div key={index} className="bg-background py-4 px-5 flex items-start gap-4">
+                  <span className="font-mono text-[11px] text-accent mt-0.5">0{index + 1}</span>
+                  <p className="text-sm text-secondary-foreground">{metric}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-base text-muted-foreground leading-relaxed italic font-serif">
+              {project.outcome.summary}
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Reflection */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
-        <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-6">
-          Reflection
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl">
-          <div>
-            <p className="text-sm font-medium text-foreground mb-3">What worked</p>
-            <ul className="space-y-2">
-              {project.reflection.worked.map((item, index) => (
-                <li key={index} className="text-sm text-muted-foreground leading-relaxed">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <p className="text-sm font-medium text-foreground mb-3">{"What didn't"}</p>
-            <ul className="space-y-2">
-              {project.reflection.didnt.map((item, index) => (
-                <li key={index} className="text-sm text-muted-foreground leading-relaxed">
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="mt-8 max-w-3xl">
-          <p className="text-sm font-medium text-foreground mb-2">What I would do differently</p>
-          <p className="text-sm text-muted-foreground leading-relaxed">
-            {project.reflection.different}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 md:py-20">
+          <p className="font-mono text-xs tracking-wider text-accent uppercase mb-8">
+            Reflection
           </p>
+          <div className="grid md:grid-cols-2 gap-12 max-w-3xl">
+            <div>
+              <p className="text-sm text-foreground mb-4 tracking-tight">What worked</p>
+              <ul className="space-y-3">
+                {project.reflection.worked.map((item, index) => (
+                  <li key={index} className="text-sm text-muted-foreground leading-relaxed pl-4 border-l-2 border-accent/30">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-sm text-foreground mb-4 tracking-tight">{"What didn't"}</p>
+              <ul className="space-y-3">
+                {project.reflection.didnt.map((item, index) => (
+                  <li key={index} className="text-sm text-muted-foreground leading-relaxed pl-4 border-l-2 border-border">
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="mt-10 max-w-3xl">
+            <p className="text-sm text-foreground mb-3 tracking-tight">What I would do differently</p>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {project.reflection.different}
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Back to Work */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
-        <Link
-          href="/work"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          Back to Work
-        </Link>
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16 flex items-center justify-between">
+          <Link
+            href="/work"
+            className="inline-flex items-center gap-2 font-mono text-xs tracking-wider text-muted-foreground hover:text-foreground transition-colors uppercase"
+          >
+            <ArrowLeft className="h-3.5 w-3.5" />
+            Back to Work
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 font-mono text-xs tracking-wider text-accent hover:text-foreground transition-colors uppercase"
+          >
+            Start a Project
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+        </div>
       </section>
     </div>
   )

@@ -1,14 +1,14 @@
 import Link from "next/link"
 import Image from "next/image"
 import { getFeaturedProjects } from "@/lib/projects"
-import { ArrowRight } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
 const capabilities = [
-  "CRM Implementation & Administration",
-  "Database Design & Management",
-  "Workflow Automation & Integration",
-  "Data Migration & Cleanup",
-  "System Documentation & Handover",
+  { label: "CRM Implementation", description: "Setting up and customising platforms to match how you actually work" },
+  { label: "Database Design", description: "Clean schemas, proper relationships, data that stays reliable" },
+  { label: "Workflow Automation", description: "Connecting systems and eliminating repetitive manual work" },
+  { label: "Data Migration", description: "Moving from legacy systems without losing records or relationships" },
+  { label: "System Documentation", description: "Clear handover docs so it all makes sense after I leave" },
 ]
 
 export default function HomePage() {
@@ -17,113 +17,153 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 pt-24 pb-20">
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground tracking-tight text-balance">
-          Hameed Ur Rehman
-        </h1>
-        <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-          Systems builder based in the UK. I design, implement, and maintain CRM platforms, 
-          databases, and operational tooling for individuals, small teams, and organisations 
-          through Nexlink Media.
+      <section className="mx-auto max-w-6xl px-6 lg:px-8 pt-32 pb-24 md:pt-40 md:pb-32">
+        <p className="font-mono text-xs tracking-wider text-accent uppercase mb-6">
+          Systems Builder & Administrator
         </p>
-        <div className="mt-8 flex flex-wrap gap-4">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl text-foreground tracking-tight font-light leading-[1.1] max-w-4xl text-balance">
+          I build the systems that organisations depend on
+        </h1>
+        <p className="mt-8 text-lg text-muted-foreground max-w-xl leading-relaxed">
+          CRM platforms, databases, and operational tooling for individuals, 
+          small teams, and organisations through{" "}
+          <span className="text-foreground">Nexlink Media</span>.
+        </p>
+        <div className="mt-10 flex gap-6">
           <Link
             href="/work"
-            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
+            className="inline-flex items-center gap-2 font-mono text-xs tracking-wider text-foreground bg-secondary hover:bg-accent hover:text-accent-foreground px-5 py-3 transition-colors uppercase"
           >
             View Work
-            <ArrowRight className="h-4 w-4" />
+            <ArrowUpRight className="h-3.5 w-3.5" />
           </Link>
           <Link
-            href="/about"
-            className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+            href="/contact"
+            className="inline-flex items-center gap-2 font-mono text-xs tracking-wider text-muted-foreground hover:text-foreground px-5 py-3 border border-border hover:border-foreground/30 transition-colors uppercase"
           >
-            About
+            Get in Touch
           </Link>
         </div>
       </section>
 
-      {/* Intro Section */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-16 border-t border-border">
-        <div className="max-w-2xl">
-          <p className="text-base text-foreground leading-relaxed">
-            I run Nexlink Media, a small independent practice focused on building websites 
-            and internal systems. Most of my work involves CRM implementation, database design, 
-            workflow automation, and the kind of operational tooling that organisations depend 
-            on but rarely think about.
-          </p>
-          <p className="mt-4 text-base text-muted-foreground leading-relaxed">
-            Good systems work is invisible when it's done right. The goal is infrastructure that 
-            just works—reliable, well-documented, and maintainable long after I've moved on.
-          </p>
-        </div>
-      </section>
-
-      {/* Selected Work Section */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-16 border-t border-border">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
-            Selected Work
-          </h2>
-          <Link
-            href="/work"
-            className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
-          >
-            View All
-          </Link>
-        </div>
-
-        <div className="grid gap-12">
-          {featuredProjects.map((project) => (
+      {/* Selected Work */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+          <div className="flex items-end justify-between mb-14">
+            <div>
+              <p className="font-mono text-xs tracking-wider text-accent uppercase mb-3">
+                Selected Work
+              </p>
+              <p className="text-sm text-muted-foreground max-w-md">
+                Recent projects in CRM implementation, database design, and systems integration.
+              </p>
+            </div>
             <Link
-              key={project.slug}
-              href={`/work/${project.slug}`}
-              className="group block"
+              href="/work"
+              className="hidden md:inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-muted-foreground hover:text-foreground transition-colors uppercase"
             >
-              <article className="grid md:grid-cols-2 gap-6">
-                <div className="aspect-[4/3] relative overflow-hidden bg-muted">
-                  <Image
-                    src={project.thumbnail || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex flex-col justify-center">
-                  <p className="text-xs text-muted-foreground mb-2">
-                    {project.industry}
-                  </p>
-                  <h3 className="font-serif text-xl md:text-2xl text-foreground group-hover:text-muted-foreground transition-colors">
-                    {project.title}
-                  </h3>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                  <p className="mt-4 text-xs text-muted-foreground">
-                    {project.role} · {project.year}
-                  </p>
-                </div>
-              </article>
+              View All
+              <ArrowUpRight className="h-3 w-3" />
             </Link>
-          ))}
+          </div>
+
+          <div className="grid gap-px bg-border">
+            {featuredProjects.map((project) => (
+              <Link
+                key={project.slug}
+                href={`/work/${project.slug}`}
+                className="group bg-background"
+              >
+                <article className="grid md:grid-cols-12 gap-6 py-10 md:py-12 px-0 md:px-2">
+                  <div className="md:col-span-3">
+                    <div className="aspect-[4/3] relative overflow-hidden bg-secondary">
+                      <Image
+                        src={project.thumbnail || "/placeholder.svg"}
+                        alt={project.title}
+                        fill
+                        className="object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                      />
+                    </div>
+                  </div>
+                  <div className="md:col-span-6 flex flex-col justify-center">
+                    <p className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase mb-2">
+                      {project.industry}
+                    </p>
+                    <h3 className="text-xl md:text-2xl text-foreground group-hover:text-accent transition-colors tracking-tight">
+                      {project.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
+                  <div className="md:col-span-3 flex flex-col justify-center items-start md:items-end gap-1">
+                    <p className="font-mono text-[11px] tracking-wider text-muted-foreground">
+                      {project.role}
+                    </p>
+                    <p className="font-mono text-[11px] tracking-wider text-muted-foreground">
+                      {project.year}
+                    </p>
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 md:hidden">
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-muted-foreground hover:text-foreground transition-colors uppercase"
+            >
+              View All Projects
+              <ArrowUpRight className="h-3 w-3" />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Capabilities Section */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-16 border-t border-border">
-        <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-8">
-          Capabilities
-        </h2>
-        <ul className="space-y-3">
-          {capabilities.map((capability) => (
-            <li
-              key={capability}
-              className="text-base text-foreground"
+      {/* Capabilities */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+          <p className="font-mono text-xs tracking-wider text-accent uppercase mb-14">
+            Capabilities
+          </p>
+          <div className="grid gap-px bg-border">
+            {capabilities.map((cap) => (
+              <div key={cap.label} className="bg-background flex flex-col md:flex-row md:items-center gap-2 md:gap-12 py-6 md:py-7 px-0 md:px-2">
+                <p className="text-foreground md:w-64 flex-shrink-0 tracking-tight">
+                  {cap.label}
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {cap.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Brief Intro */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+          <div className="max-w-2xl">
+            <p className="text-xl md:text-2xl text-foreground leading-relaxed tracking-tight">
+              I run Nexlink Media, a small independent practice focused on building websites 
+              and internal systems. Most of my work involves taking messy, fragmented data and 
+              turning it into something structured and useful.
+            </p>
+            <p className="mt-6 text-base text-muted-foreground leading-relaxed">
+              Good systems work is invisible when it's done right. The goal is infrastructure that 
+              just works—reliable, well-documented, and maintainable long after I've moved on.
+            </p>
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-1.5 font-mono text-xs tracking-wider text-accent hover:text-foreground mt-8 transition-colors uppercase"
             >
-              {capability}
-            </li>
-          ))}
-        </ul>
+              More about me
+              <ArrowUpRight className="h-3 w-3" />
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   )
