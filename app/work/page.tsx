@@ -3,8 +3,8 @@ import Image from "next/image"
 import { getAllProjects } from "@/lib/projects"
 
 export const metadata = {
-  title: "Work — Daniel Mercer",
-  description: "Selected projects in video editing, platform strategy, workflow design, and digital systems.",
+  title: "Work — Hameed Ur Rehman",
+  description: "Selected projects in CRM implementation, database administration, workflow automation, and systems building.",
 }
 
 export default function WorkPage() {
@@ -17,8 +17,8 @@ export default function WorkPage() {
           Work
         </h1>
         <p className="mt-4 text-base text-muted-foreground max-w-2xl leading-relaxed">
-          A selection of projects from media organisations, creative studios, internal company 
-          teams, and freelance engagements. Each one taught me something different.
+          A selection of projects across CRM implementation, database design, workflow 
+          automation, and systems integration. Each one taught me something different.
         </p>
       </section>
 

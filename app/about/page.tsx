@@ -119,38 +119,38 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-2 gap-8 max-w-3xl">
           <div>
             <p className="font-serif text-lg text-foreground mb-3">
-              Clarity over cleverness
+              Reliability over impressiveness
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              The goal is usually to make something clearer, not more impressive. 
-              Good work often goes unnoticed because it just works.
+              A system that works quietly every day is worth more than one that 
+              demos well but breaks under pressure. I build for the long run.
             </p>
           </div>
           <div>
             <p className="font-serif text-lg text-foreground mb-3">
-              Constraints are useful
+              Document everything
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Unlimited budgets and timelines rarely produce better work. 
-              Knowing your limits forces better decisions.
+              If the person after me can't understand what I built or why, 
+              I haven't finished the job. Documentation is part of the work, not an afterthought.
             </p>
           </div>
           <div>
             <p className="font-serif text-lg text-foreground mb-3">
-              Systems over heroics
+              Solve the actual problem
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Sustainable processes beat individual brilliance. Build things 
-              that keep working after you leave.
+              The requested solution and the actual problem are often different things. 
+              I try to understand what's really going wrong before building anything.
             </p>
           </div>
           <div>
             <p className="font-serif text-lg text-foreground mb-3">
-              Honest communication
+              Ownership builds competence
             </p>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Say what you actually think. Flag problems early. Be direct 
-              about what you can and cannot do.
+              Taking responsibility for live systems—where mistakes have real 
+              consequences—teaches you things that theory never will.
             </p>
           </div>
         </div>
@@ -160,9 +160,9 @@ export default function AboutPage() {
       <section className="mx-auto max-w-5xl px-6 lg:px-8 py-16 border-t border-border">
         <blockquote className="max-w-2xl">
           <p className="font-serif text-xl md:text-2xl text-foreground leading-relaxed italic">
-            "I think in systems, but I understand that systems serve people. 
-            The goal is infrastructure that works quietly in the background—reliable, 
-            documented, and maintainable long after I've moved on."
+            "I didn't finish university, but I've maintained live databases, migrated 
+            CRM systems with thousands of records, and built workflows that people 
+            depend on daily. The learning never stopped—it just moved somewhere more practical."
           </p>
         </blockquote>
       </section>

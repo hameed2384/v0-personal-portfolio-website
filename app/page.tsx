@@ -4,11 +4,11 @@ import { getFeaturedProjects } from "@/lib/projects"
 import { ArrowRight } from "lucide-react"
 
 const capabilities = [
-  "CRM Implementation",
-  "Database Design",
-  "Workflow Automation",
-  "Data Migration",
-  "System Documentation",
+  "CRM Implementation & Administration",
+  "Database Design & Management",
+  "Workflow Automation & Integration",
+  "Data Migration & Cleanup",
+  "System Documentation & Handover",
 ]
 
 export default function HomePage() {
@@ -22,8 +22,9 @@ export default function HomePage() {
           Hameed Ur Rehman
         </h1>
         <p className="mt-6 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-          Systems builder based in the UK. I design, implement, and maintain CRM systems, 
-          databases, and the operational infrastructure that keeps organisations running smoothly.
+          Systems builder based in the UK. I design, implement, and maintain CRM platforms, 
+          databases, and operational tooling for individuals, small teams, and organisations 
+          through Nexlink Media.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <Link

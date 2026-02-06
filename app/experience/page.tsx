@@ -8,8 +8,8 @@ const experiences = [
     role: "Founder & Systems Builder",
     organisation: "Nexlink Media",
     period: "2024 — Present",
-    description: "Running an independent practice focused on building websites and internal systems for individuals, small teams, and organisations. Work spans CRM implementation, database design, workflow automation, and operational tooling. Emphasis on reliability, structure, and long-term maintainability rather than impressive demos.",
-    learned: "Building a practice from scratch has reinforced that trust comes from consistency. Clients don't care about clever solutions—they care about systems that keep working.",
+    description: "Running a small, independent practice focused on building websites and internal systems for individuals, small teams, and organisations. Work spans CRM implementation, database design, workflow automation, and operational tooling. The emphasis is always on reliability, structure, and long-term maintainability—building things that work after I've moved on.",
+    learned: "Running your own practice teaches you that trust is built through consistency, not credentials. Clients care about whether their systems work, not how you learned to build them.",
   },
   {
     role: "Self-Directed Learning",
@@ -22,8 +22,8 @@ const experiences = [
     role: "Computer Science Student",
     organisation: "University of Portsmouth",
     period: "2022 — 2023",
-    description: "Started formal computer science education with focus on databases, systems architecture, and structured problem-solving. Left before completion—not due to inability, but a preference for hands-on, applied work over academic theory.",
-    learned: "University gave me foundational knowledge and a structured way of thinking about systems. Leaving was a conscious decision to pursue practical learning, which has shaped my approach ever since.",
+    description: "Started formal computer science education with a focus on databases, systems architecture, and structured problem-solving. Left before completing the degree. The decision was straightforward—I was learning more from building real things than from coursework, and I wanted to pursue that.",
+    learned: "University gave me foundational knowledge and a structured way of thinking about problems. I don't regret going, and I don't regret leaving. Both decisions made sense at the time.",
   },
 ]
 
@@ -54,8 +54,9 @@ export default function ExperiencePage() {
           Experience
         </h1>
         <p className="mt-4 text-base text-muted-foreground max-w-2xl leading-relaxed">
-          A non-traditional path into systems work. This isn't a CV—it's context 
-          for understanding how I learned and why I approach problems the way I do.
+          A non-traditional path into systems work. I dropped out of university, 
+          taught myself through real projects, and built a practice from there. This 
+          isn't a CV—it's context for understanding how I think.
         </p>
       </section>
 
@@ -148,6 +149,19 @@ export default function ExperiencePage() {
             </ul>
           </div>
         </div>
+      </section>
+
+      {/* Supporting Skills */}
+      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
+        <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-6">
+          Supporting Skills
+        </h2>
+        <p className="text-sm text-muted-foreground max-w-2xl leading-relaxed">
+          Alongside systems work, I have practical experience in web design, video 
+          editing, and content production. These aren't the headline—but they inform how 
+          I approach problems. Understanding how people actually use digital tools makes 
+          me a better systems builder.
+        </p>
       </section>
 
       {/* Note */}
