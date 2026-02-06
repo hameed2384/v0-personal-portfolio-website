@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { ArrowUpRight } from "lucide-react"
 
 export const metadata = {
   title: "About — Hameed Ur Rehman",
@@ -8,163 +9,161 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 pt-24 pb-12">
-        <h1 className="font-serif text-3xl md:text-4xl text-foreground tracking-tight">
+      {/* Header */}
+      <section className="mx-auto max-w-6xl px-6 lg:px-8 pt-32 pb-16 md:pt-40">
+        <p className="font-mono text-xs tracking-wider text-accent uppercase mb-6">
           About
+        </p>
+        <h1 className="text-3xl md:text-5xl text-foreground tracking-tight font-light max-w-3xl leading-[1.15]">
+          Systems builder. CRM specialist. Database admin. Based in Sheffield.
         </h1>
       </section>
 
       {/* Biography */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
-        <div className="grid lg:grid-cols-3 gap-12">
-          <div className="lg:col-span-2 space-y-6">
-            <p className="text-base text-foreground leading-relaxed">
-              I'm Hameed Ur Rehman, a systems builder based in the UK. I specialise in 
-              CRM implementation, database design, and the operational infrastructure 
-              that keeps organisations running smoothly.
-            </p>
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+          <div className="grid lg:grid-cols-12 gap-16">
+            <div className="lg:col-span-7 space-y-6">
+              <p className="text-base text-secondary-foreground leading-relaxed">
+                I'm Hameed Ur Rehman, a systems builder based in the UK. I specialise in 
+                CRM implementation, database design, and the operational infrastructure 
+                that keeps organisations running smoothly.
+              </p>
 
-            <p className="text-base text-foreground leading-relaxed">
-              I started studying Computer Science at the University of Portsmouth, but 
-              left before completing my degree. It wasn't a lack of ability—I found I 
-              learned better by building real things than by studying theory. The decision 
-              to leave was a conscious pivot toward hands-on work, and it's shaped how I 
-              approach problems ever since.
-            </p>
+              <p className="text-base text-secondary-foreground leading-relaxed">
+                I started studying Computer Science at the University of Portsmouth, but 
+                left before completing my degree. It wasn't a lack of ability—I found I 
+                learned better by building real things than by studying theory. The decision 
+                to leave was a conscious pivot toward hands-on work, and it's shaped how I 
+                approach problems ever since.
+              </p>
 
-            <p className="text-base text-foreground leading-relaxed">
-              Since then, I've taught myself through real projects—taking responsibility 
-              for live data, workflows, and platforms where the stakes are real. That 
-              practical learning path has given me a grounding in systems thinking that 
-              formal education alone wouldn't have provided.
-            </p>
+              <p className="text-base text-secondary-foreground leading-relaxed">
+                Since then, I've taught myself through real projects—taking responsibility 
+                for live data, workflows, and platforms where the stakes are real. That 
+                practical learning path has given me a grounding in systems thinking that 
+                formal education alone wouldn't have provided.
+              </p>
 
-            <p className="text-base text-foreground leading-relaxed">
-              I now run Nexlink Media, a small independent practice focused on building 
-              websites and internal systems for individuals, small teams, and organisations. 
-              The work is practical and reliability-focused—building structures that last 
-              rather than impressive demos that fall apart.
-            </p>
+              <p className="text-base text-secondary-foreground leading-relaxed">
+                I now run Nexlink Media, a small independent practice focused on building 
+                websites and internal systems for individuals, small teams, and organisations. 
+                The work is practical and reliability-focused—building structures that last 
+                rather than impressive demos that fall apart.
+              </p>
 
-            <p className="text-base text-foreground leading-relaxed">
-              Most of my work involves taking messy, fragmented data and turning it into 
-              something organised and useful. Whether that's migrating legacy systems, 
-              building custom CRM workflows, or designing database schemas—I enjoy the 
-              puzzle of making complex information accessible.
-            </p>
+              <p className="text-base text-secondary-foreground leading-relaxed">
+                Most of my work involves taking messy, fragmented data and turning it into 
+                something organised and useful. Whether that's migrating legacy systems, 
+                building custom CRM workflows, or designing database schemas—I enjoy the 
+                puzzle of making complex information accessible.
+              </p>
 
-            <p className="text-base text-muted-foreground leading-relaxed">
-              If you're dealing with a systems challenge or need help getting your data 
-              infrastructure in order, I'd be happy to talk.
-            </p>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                If you're dealing with a systems challenge or need help getting your data 
+                infrastructure in order, I'd be happy to talk.
+              </p>
+            </div>
+
+            <aside className="lg:col-span-5 lg:pl-8">
+              <div className="lg:sticky lg:top-24 space-y-10">
+                <div>
+                  <p className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase mb-3">
+                    Location
+                  </p>
+                  <p className="text-sm text-foreground">Sheffield, UK</p>
+                  <p className="text-xs text-muted-foreground mt-1">Remote-capable</p>
+                </div>
+                <div>
+                  <p className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase mb-3">
+                    Current
+                  </p>
+                  <p className="text-sm text-foreground">Nexlink Media</p>
+                  <p className="text-xs text-muted-foreground mt-1">Independent practice</p>
+                </div>
+                <div>
+                  <p className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase mb-3">
+                    Focus Areas
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {["CRM Systems", "Data Management", "Workflow Design", "Operational Tooling"].map((area) => (
+                      <span key={area} className="font-mono text-[11px] tracking-wider text-secondary-foreground bg-secondary px-3 py-1.5">
+                        {area}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <p className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase mb-3">
+                    Links
+                  </p>
+                  <div className="flex flex-col gap-2">
+                    <Link href="/work" className="inline-flex items-center gap-1.5 text-sm text-secondary-foreground hover:text-accent transition-colors">
+                      View Work <ArrowUpRight className="h-3 w-3" />
+                    </Link>
+                    <Link href="/experience" className="inline-flex items-center gap-1.5 text-sm text-secondary-foreground hover:text-accent transition-colors">
+                      Experience <ArrowUpRight className="h-3 w-3" />
+                    </Link>
+                    <Link href="/contact" className="inline-flex items-center gap-1.5 text-sm text-secondary-foreground hover:text-accent transition-colors">
+                      Get in Touch <ArrowUpRight className="h-3 w-3" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </aside>
           </div>
-
-          <aside className="space-y-8">
-            <div>
-              <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-3">
-                Location
-              </p>
-              <p className="text-sm text-foreground">United Kingdom</p>
-              <p className="text-xs text-muted-foreground mt-1">Remote-capable</p>
-            </div>
-            <div>
-              <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-3">
-                Current
-              </p>
-              <p className="text-sm text-foreground">Nexlink Media</p>
-              <p className="text-xs text-muted-foreground mt-1">Independent practice</p>
-            </div>
-            <div>
-              <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-3">
-                Focus Areas
-              </p>
-              <ul className="space-y-1.5 text-sm text-foreground">
-                <li>CRM Systems</li>
-                <li>Data Management</li>
-                <li>Workflow Design</li>
-                <li>Operational Tooling</li>
-              </ul>
-            </div>
-            <div>
-              <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-3">
-                Links
-              </p>
-              <ul className="space-y-1.5 text-sm">
-                <li>
-                  <Link href="/work" className="text-foreground hover:text-muted-foreground transition-colors">
-                    View Work
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/experience" className="text-foreground hover:text-muted-foreground transition-colors">
-                    Experience
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="text-foreground hover:text-muted-foreground transition-colors">
-                    Get in Touch
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </aside>
         </div>
       </section>
 
       {/* Philosophy */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
-        <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-8">
-          How I Think About Work
-        </h2>
-        <div className="grid md:grid-cols-2 gap-8 max-w-3xl">
-          <div>
-            <p className="font-serif text-lg text-foreground mb-3">
-              Clarity over cleverness
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              The goal is usually to make something clearer, not more impressive. 
-              Good work often goes unnoticed because it just works.
-            </p>
-          </div>
-          <div>
-            <p className="font-serif text-lg text-foreground mb-3">
-              Constraints are useful
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Unlimited budgets and timelines rarely produce better work. 
-              Knowing your limits forces better decisions.
-            </p>
-          </div>
-          <div>
-            <p className="font-serif text-lg text-foreground mb-3">
-              Systems over heroics
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Sustainable processes beat individual brilliance. Build things 
-              that keep working after you leave.
-            </p>
-          </div>
-          <div>
-            <p className="font-serif text-lg text-foreground mb-3">
-              Honest communication
-            </p>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Say what you actually think. Flag problems early. Be direct 
-              about what you can and cannot do.
-            </p>
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+          <p className="font-mono text-xs tracking-wider text-accent uppercase mb-14">
+            How I Think About Work
+          </p>
+          <div className="grid md:grid-cols-2 gap-px bg-border max-w-4xl">
+            {[
+              {
+                title: "Reliability over impressiveness",
+                text: "A system that works quietly every day is worth more than one that demos well but breaks under pressure. I build for the long run.",
+              },
+              {
+                title: "Document everything",
+                text: "If the person after me can't understand what I built or why, I haven't finished the job. Documentation is part of the work, not an afterthought.",
+              },
+              {
+                title: "Solve the actual problem",
+                text: "The requested solution and the actual problem are often different things. I try to understand what's really going wrong before building anything.",
+              },
+              {
+                title: "Ownership builds competence",
+                text: "Taking responsibility for live systems—where mistakes have real consequences—teaches you things that theory never will.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-background p-8">
+                <p className="text-foreground tracking-tight mb-3">
+                  {item.title}
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {item.text}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Pull Quote */}
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-16 border-t border-border">
-        <blockquote className="max-w-2xl">
-          <p className="font-serif text-xl md:text-2xl text-foreground leading-relaxed italic">
-            "I think in systems, but I understand that systems serve people. 
-            The goal is infrastructure that works quietly in the background—reliable, 
-            documented, and maintainable long after I've moved on."
-          </p>
-        </blockquote>
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+          <blockquote className="max-w-3xl">
+            <p className="font-serif text-xl md:text-3xl text-foreground leading-relaxed italic">
+              "I didn't finish university, but I've maintained live databases, migrated 
+              CRM systems with thousands of records, and built workflows that people 
+              depend on daily. The learning never stopped—it just moved somewhere more practical."
+            </p>
+          </blockquote>
+        </div>
       </section>
     </div>
   )

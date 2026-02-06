@@ -1,10 +1,11 @@
 import Link from "next/link"
 import Image from "next/image"
 import { getAllProjects } from "@/lib/projects"
+import { ArrowUpRight } from "lucide-react"
 
 export const metadata = {
-  title: "Work — Daniel Mercer",
-  description: "Selected projects in video editing, platform strategy, workflow design, and digital systems.",
+  title: "Work — Hameed Ur Rehman",
+  description: "Selected projects in CRM implementation, database administration, workflow automation, and systems building.",
 }
 
 export default function WorkPage() {
@@ -12,54 +13,64 @@ export default function WorkPage() {
 
   return (
     <div className="min-h-screen">
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 pt-24 pb-12">
-        <h1 className="font-serif text-3xl md:text-4xl text-foreground tracking-tight">
+      {/* Header */}
+      <section className="mx-auto max-w-6xl px-6 lg:px-8 pt-32 pb-16 md:pt-40">
+        <p className="font-mono text-xs tracking-wider text-accent uppercase mb-6">
           Work
+        </p>
+        <h1 className="text-3xl md:text-5xl text-foreground tracking-tight font-light max-w-3xl leading-[1.15]">
+          Selected projects
         </h1>
-        <p className="mt-4 text-base text-muted-foreground max-w-2xl leading-relaxed">
-          A selection of projects from media organisations, creative studios, internal company 
-          teams, and freelance engagements. Each one taught me something different.
+        <p className="mt-6 text-base text-muted-foreground max-w-xl leading-relaxed">
+          CRM implementation, database design, workflow automation, and systems 
+          integration. Each project taught me something different.
         </p>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 lg:px-8 py-12 border-t border-border">
-        <div className="grid gap-16">
-          {projects.map((project, index) => (
-            <Link
-              key={project.slug}
-              href={`/work/${project.slug}`}
-              className="group block"
-            >
-              <article className={`grid md:grid-cols-2 gap-6 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                <div className={`aspect-[4/3] relative overflow-hidden bg-muted ${index % 2 === 1 ? 'md:order-2' : ''}`}>
-                  <Image
-                    src={project.thumbnail || "/placeholder.svg"}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className={`flex flex-col justify-center ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                  <p className="text-xs text-muted-foreground mb-2">
+      {/* Projects Grid */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-6xl px-6 lg:px-8 py-20 md:py-28">
+          <div className="grid md:grid-cols-2 gap-px bg-border">
+            {projects.map((project) => (
+              <Link
+                key={project.slug}
+                href={`/work/${project.slug}`}
+                className="group bg-background block"
+              >
+                <article className="p-6 md:p-8">
+                  <div className="aspect-[16/10] relative overflow-hidden bg-secondary mb-6">
+                    <Image
+                      src={project.thumbnail || "/placeholder.svg"}
+                      alt={project.title}
+                      fill
+                      className="object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                    />
+                  </div>
+                  <p className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase mb-2">
                     {project.industry}
                   </p>
-                  <h2 className="font-serif text-xl md:text-2xl text-foreground group-hover:text-muted-foreground transition-colors">
+                  <h2 className="text-lg text-foreground group-hover:text-accent transition-colors tracking-tight">
                     {project.title}
                   </h2>
-                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed line-clamp-2">
                     {project.description}
                   </p>
-                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
-                    <span>{project.client}</span>
-                    <span>·</span>
-                    <span>{project.role}</span>
-                    <span>·</span>
-                    <span>{project.year}</span>
+                  <div className="mt-4 flex items-center gap-3">
+                    <span className="font-mono text-[10px] tracking-wider text-muted-foreground">
+                      {project.client}
+                    </span>
+                    <span className="text-border">|</span>
+                    <span className="font-mono text-[10px] tracking-wider text-muted-foreground">
+                      {project.year}
+                    </span>
                   </div>
-                </div>
-              </article>
-            </Link>
-          ))}
+                  <div className="mt-4 inline-flex items-center gap-1 font-mono text-[11px] tracking-wider text-accent opacity-0 group-hover:opacity-100 transition-opacity">
+                    View Case Study <ArrowUpRight className="h-3 w-3" />
+                  </div>
+                </article>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
     </div>

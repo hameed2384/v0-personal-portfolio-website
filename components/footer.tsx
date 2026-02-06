@@ -9,38 +9,60 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-5xl px-6 lg:px-8 py-12">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <div className="flex flex-col gap-2">
-            <p className="text-sm text-foreground">Hameed Ur Rehman</p>
-            <a 
-              href="mailto:rehman2384@gmail.com" 
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+    <footer className="border-t border-border">
+      <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16">
+        <div className="grid md:grid-cols-3 gap-12">
+          <div>
+            <p className="font-mono text-xs tracking-wider text-muted-foreground uppercase mb-4">
+              Get in touch
+            </p>
+            <a
+              href="mailto:rehman2384@gmail.com"
+              className="text-sm text-foreground hover:text-accent transition-colors"
             >
               rehman2384@gmail.com
             </a>
           </div>
 
-          <div className="flex items-center gap-6">
-            {socialLinks.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="h-5 w-5" aria-hidden="true" />
-              </Link>
-            ))}
+          <div>
+            <p className="font-mono text-xs tracking-wider text-muted-foreground uppercase mb-4">
+              Links
+            </p>
+            <div className="flex flex-col gap-2.5">
+              <Link href="/work" className="text-sm text-secondary-foreground hover:text-foreground transition-colors">Work</Link>
+              <Link href="/about" className="text-sm text-secondary-foreground hover:text-foreground transition-colors">About</Link>
+              <Link href="/experience" className="text-sm text-secondary-foreground hover:text-foreground transition-colors">Experience</Link>
+              <Link href="/contact" className="text-sm text-secondary-foreground hover:text-foreground transition-colors">Contact</Link>
+            </div>
+          </div>
+
+          <div>
+            <p className="font-mono text-xs tracking-wider text-muted-foreground uppercase mb-4">
+              Social
+            </p>
+            <div className="flex gap-4">
+              {socialLinks.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-secondary-foreground hover:text-accent transition-colors"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-border">
-          <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Hameed Ur Rehman. All rights reserved.
+        <div className="mt-16 pt-8 border-t border-border flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <p className="font-mono text-[11px] text-muted-foreground tracking-wider">
+            © {new Date().getFullYear()} Hameed Ur Rehman
+          </p>
+          <p className="font-mono text-[11px] text-muted-foreground tracking-wider">
+            Sheffield, UK
           </p>
         </div>
       </div>

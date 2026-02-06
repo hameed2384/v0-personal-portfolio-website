@@ -18,26 +18,26 @@ export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <nav className="mx-auto max-w-5xl px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
-          <Link 
-            href="/" 
-            className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors"
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md">
+      <nav className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="flex h-14 items-center justify-between">
+          <Link
+            href="/"
+            className="font-mono text-xs tracking-wider text-foreground hover:text-accent transition-colors uppercase"
           >
             Hameed Ur Rehman
           </Link>
 
           {/* Desktop navigation */}
-          <div className="hidden md:flex md:gap-x-8">
+          <div className="hidden md:flex md:items-center md:gap-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "text-sm transition-colors",
+                  "font-mono text-xs tracking-wider transition-colors uppercase",
                   pathname === item.href || pathname.startsWith(item.href + "/")
-                    ? "text-foreground"
+                    ? "text-accent"
                     : "text-muted-foreground hover:text-foreground"
                 )}
               >
@@ -54,26 +54,26 @@ export function Header() {
           >
             <span className="sr-only">Toggle menu</span>
             {mobileMenuOpen ? (
-              <X className="h-5 w-5" aria-hidden="true" />
+              <X className="h-4 w-4" aria-hidden="true" />
             ) : (
-              <Menu className="h-5 w-5" aria-hidden="true" />
+              <Menu className="h-4 w-4" aria-hidden="true" />
             )}
           </button>
         </div>
 
         {/* Mobile navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-6 border-t border-border">
+            <div className="flex flex-col gap-5">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "text-sm transition-colors",
+                    "font-mono text-xs tracking-wider transition-colors uppercase",
                     pathname === item.href || pathname.startsWith(item.href + "/")
-                      ? "text-foreground"
+                      ? "text-accent"
                       : "text-muted-foreground hover:text-foreground"
                   )}
                 >
