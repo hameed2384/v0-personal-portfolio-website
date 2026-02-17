@@ -6,11 +6,6 @@ export const metadata = {
   description: "Get in touch for CRM implementation, database administration, or systems building projects.",
 }
 
-const socialLinks = [
-  { name: "GitHub", href: "https://github.com", icon: Github },
-  { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { name: "Instagram", href: "https://instagram.com", icon: Instagram },
-]
 
 export default function ContactPage() {
   return (
@@ -79,21 +74,6 @@ export default function ContactPage() {
                   <p className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase mb-3">
                     Social
                   </p>
-                  <div className="flex flex-col gap-3">
-                    {socialLinks.map((item) => (
-                      <Link
-                        key={item.name}
-                        href={item.href}
-                        className="inline-flex items-center gap-3 text-sm text-secondary-foreground hover:text-accent transition-colors"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <item.icon className="h-4 w-4" aria-hidden="true" />
-                        {item.name}
-                        <ArrowUpRight className="h-3 w-3 ml-auto text-muted-foreground" />
-                      </Link>
-                    ))}
-                  </div>
                 </div>
               </div>
             </div>
