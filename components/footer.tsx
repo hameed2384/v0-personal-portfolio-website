@@ -1,11 +1,5 @@
 import Link from "next/link"
-import { Github, Linkedin, Instagram } from "lucide-react"
-
-const socialLinks = [
-  { name: "GitHub", href: "https://github.com", icon: Github },
-  { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { name: "Instagram", href: "https://instagram.com", icon: Instagram },
-]
+import { Instagram } from "lucide-react"
 
 export function Footer() {
   return (
@@ -40,20 +34,15 @@ export function Footer() {
             <p className="font-mono text-xs tracking-wider text-muted-foreground uppercase mb-4">
               Social
             </p>
-            <div className="flex gap-4">
-              {socialLinks.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-secondary-foreground hover:text-accent transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              ))}
-            </div>
+            <Link
+              href="https://instagram.com/hameed.sys"
+              className="flex items-center gap-2 text-sm text-secondary-foreground hover:text-accent transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Instagram className="h-4 w-4" aria-hidden="true" />
+              <span>@hameed.sys</span>
+            </Link>
           </div>
         </div>
 
