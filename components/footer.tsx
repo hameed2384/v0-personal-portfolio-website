@@ -1,17 +1,10 @@
 import Link from "next/link"
-import { Github, Linkedin, Instagram } from "lucide-react"
-
-const socialLinks = [
-  { name: "GitHub", href: "https://github.com", icon: Github },
-  { name: "LinkedIn", href: "https://linkedin.com", icon: Linkedin },
-  { name: "Instagram", href: "https://instagram.com", icon: Instagram },
-]
 
 export function Footer() {
   return (
     <footer className="border-t border-border">
       <div className="mx-auto max-w-6xl px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-3 gap-12">
+        <div className="grid md:grid-cols-2 gap-12">
           <div>
             <p className="font-mono text-xs tracking-wider text-muted-foreground uppercase mb-4">
               Get in touch
@@ -33,26 +26,6 @@ export function Footer() {
               <Link href="/about" className="text-sm text-secondary-foreground hover:text-foreground transition-colors">About</Link>
               <Link href="/experience" className="text-sm text-secondary-foreground hover:text-foreground transition-colors">Experience</Link>
               <Link href="/contact" className="text-sm text-secondary-foreground hover:text-foreground transition-colors">Contact</Link>
-            </div>
-          </div>
-
-          <div>
-            <p className="font-mono text-xs tracking-wider text-muted-foreground uppercase mb-4">
-              Social
-            </p>
-            <div className="flex gap-4">
-              {socialLinks.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="text-secondary-foreground hover:text-accent transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-4 w-4" aria-hidden="true" />
-                </Link>
-              ))}
             </div>
           </div>
         </div>
