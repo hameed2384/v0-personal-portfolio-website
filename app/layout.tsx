@@ -13,7 +13,7 @@ const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jet
 export const metadata: Metadata = {
   title: 'Hameed Ur Rehman — Systems Builder & Administrator',
   description: 'Building and managing CRM systems, databases, and digital infrastructure that keeps organisations running smoothly.',
-  generator: 'v0.app',
+
 
 }
 
