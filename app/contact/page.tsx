@@ -69,12 +69,6 @@ export default function ContactPage() {
                     Nexlink Media
                   </p>
                 </div>
-
-                <div>
-                  <p className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase mb-3">
-                    Social
-                  </p>
-                </div>
               </div>
             </div>
           </div>
