@@ -4,8 +4,16 @@ import { getAllProjects } from "@/lib/projects"
 import { ArrowUpRight } from "lucide-react"
 
 export const metadata = {
-  title: "Work — Hameed Ur Rehman",
-  description: "Selected projects in CRM implementation, database administration, workflow automation, and systems building.",
+  title: "Work & Case Studies — CRM Implementation, Database Design & Systems Integration",
+  description: "Portfolio of Hameed Ur Rehman's projects: CRM implementation (HubSpot, Salesforce, Zoho), database design (PostgreSQL), workflow automation (Zapier, Make), data migration, e-commerce integration, and systems building for businesses and non-profits.",
+  openGraph: {
+    title: "Work & Case Studies — Hameed Ur Rehman",
+    description: "CRM implementation, database design, workflow automation, and systems integration projects by Hameed Ur Rehman through Nexlink Media.",
+    url: "https://hameed.pro/work",
+  },
+  alternates: {
+    canonical: "https://hameed.pro/work",
+  },
 }
 
 export default function WorkPage() {

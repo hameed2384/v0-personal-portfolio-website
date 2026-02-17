@@ -22,8 +22,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return {
-    title: `${project.title} — Hameed Ur Rehman`,
-    description: project.description,
+    title: `${project.title} — Case Study by Hameed Ur Rehman`,
+    description: `${project.description} Tools: ${project.tools.join(', ')}. A ${project.industry} project by Hameed Ur Rehman through Nexlink Media.`,
+    openGraph: {
+      title: `${project.title} — Hameed Ur Rehman`,
+      description: project.description,
+      url: `https://hameed.pro/work/${project.slug}`,
+      images: project.thumbnail ? [{ url: project.thumbnail, alt: project.title }] : undefined,
+    },
+    alternates: {
+      canonical: `https://hameed.pro/work/${project.slug}`,
+    },
   }
 }
 
