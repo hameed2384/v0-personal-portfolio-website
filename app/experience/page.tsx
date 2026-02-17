@@ -2,8 +2,16 @@ import { ArrowUpRight } from "lucide-react"
 import Link from "next/link"
 
 export const metadata = {
-  title: "Experience — Hameed Ur Rehman",
-  description: "Background in systems building, CRM implementation, and database administration.",
+  title: "Experience — CRM Implementation, Database Administration & Systems Architecture",
+  description: "Hameed Ur Rehman's experience in CRM implementation, database administration, systems architecture, and workflow automation. Tools: HubSpot, Salesforce, PostgreSQL, Zapier, Make, Python, Airtable, Supabase. Founder of Nexlink Media, Sheffield UK.",
+  openGraph: {
+    title: "Experience — Hameed Ur Rehman",
+    description: "Background in CRM systems, database administration, workflow automation, and systems building. Nexlink Media founder.",
+    url: "https://hameed.pro/experience",
+  },
+  alternates: {
+    canonical: "https://hameed.pro/experience",
+  },
 }
 
 const experiences = [

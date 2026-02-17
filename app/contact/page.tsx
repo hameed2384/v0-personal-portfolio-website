@@ -2,8 +2,16 @@ import Link from "next/link"
 import { Github, Linkedin, Instagram, ArrowUpRight, Mail } from "lucide-react"
 
 export const metadata = {
-  title: "Contact — Hameed Ur Rehman",
-  description: "Get in touch for CRM implementation, database administration, or systems building projects.",
+  title: "Contact Hameed Ur Rehman — Hire a CRM Specialist & Systems Builder",
+  description: "Get in touch with Hameed Ur Rehman for CRM implementation, database design, workflow automation, data migration, website builds, and systems integration. Based in Sheffield, UK — working through Nexlink Media.",
+  openGraph: {
+    title: "Contact Hameed Ur Rehman — CRM & Systems Projects",
+    description: "Hire Hameed for CRM implementation, database design, workflow automation, and systems building through Nexlink Media.",
+    url: "https://hameed.pro/contact",
+  },
+  alternates: {
+    canonical: "https://hameed.pro/contact",
+  },
 }
 
 
