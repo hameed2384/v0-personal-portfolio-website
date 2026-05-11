@@ -91,7 +91,7 @@ export default function ExperiencePage() {
           A non-traditional path into systems work
         </h1>
         <p className="mt-6 text-base text-muted-foreground max-w-xl leading-relaxed">
-          I dropped out of university, taught myself through real projects, and built a 
+         I taught myself through real projects, and built a 
           practice from there. This isn't a CV—it's context for understanding how I think.
         </p>
       </section>
